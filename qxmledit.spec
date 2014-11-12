@@ -1,6 +1,6 @@
 Name:           qxmledit
-Version:        0.8.7
-Release:        %mkrel 2
+Version:        0.8.11
+Release:        1
 Summary:        Simple XML editor and XSD viewer
 Group:          Editors
 License:        GPLv2
@@ -20,6 +20,7 @@ It is one of the few graphical Open Source XSD viewers.
 %setup -q
 
 %build
+%global optflags %{optflags} -Wno-strict-aliasing
 %qmake_qt4 QXmlEdit.pro
 %make \
 	QXMLEDIT_INST_DATA_DIR=%{_datadir}/%{name} \
