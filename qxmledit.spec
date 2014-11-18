@@ -1,3 +1,5 @@
+%define oname   QXmlEdit
+
 Name:           qxmledit
 Version:        0.8.11
 Release:        1
@@ -46,7 +48,7 @@ perl -pi -e 's/\r/\n/g' ./src/xmleditwidget.cpp
 
 
 %__mkdir_p %{buildroot}%{_datadir}/applications
-cat <<EOF > %{buildroot}%{_datadir}/applications/%{name}.desktop
+cat <<EOF > %{buildroot}%{_datadir}/applications/%{oname}-%{name}.desktop
 [Desktop Entry]
 Name=QXmlEdit
 GenericName=Simple XML Editor and XSD viewer
@@ -65,7 +67,7 @@ EOF
 %doc AUTHORS COPYING DISTRIBUTING GPLV3.txt LGPLV3.txt INSTALL NEWS README ROADMAP TODO doc/QXmlEdit_manual.pdf
 %{_bindir}/QXmlEdit
 %{_bindir}/%{name}
-%{_libdir}/libQXmlEdit*.so.*
+%{_libdir}/lib%{oname}.so.*
 %{_datadir}/%{name}
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/%{oname}-%{name}.desktop
 %{_iconsdir}/hicolor/*/*/%{name}.*
