@@ -40,9 +40,9 @@ ln -sf %{_bindir}/QXmlEdit %{buildroot}%{_bindir}/%{name}
 %__install -Dm 0644 ./src/images/icon.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 
 #fix wrong-script-end-of-line-encoding 
-perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/findtextparams.h
-perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/globals/includes/xmleditwidget.h
-perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/xmleditwidget.cpp
+perl -pi -e 's/\r/\n/g' ./src/findtextparams.h
+perl -pi -e 's/\r/\n/g' ./src/globals/includes/xmleditwidget.h
+perl -pi -e 's/\r/\n/g' ./src/xmleditwidget.cpp
 
 
 %__mkdir_p %{buildroot}%{_datadir}/applications
