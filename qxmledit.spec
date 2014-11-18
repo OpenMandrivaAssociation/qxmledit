@@ -63,8 +63,8 @@ EOF
 
 
 %files
-%doc AUTHORS COPYING DISTRIBUTING GPLV3.txt LGPLV3.txt INSTALL NEWS README ROADMAP TODO 
-%doc %{buildroot}/doc/QXmlEdit_manual.pdf
+%doc AUTHORS COPYING DISTRIBUTING GPLV3.txt LGPLV3.txt INSTALL NEWS README ROADMAP TODO doc/QXmlEdit_manual.pdf
+%{_datadir}/doc/qxmledit/QXmlEdit_manual.pdf
 %{_bindir}/QXmlEdit
 %{_bindir}/%{oname}
 %{_libdir}/libQXmlEdit*.so.*
