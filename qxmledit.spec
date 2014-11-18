@@ -1,13 +1,13 @@
-%define oname   QXmlEdit
+%define oname   qxmledit
 
-Name:           qxmledit
+Name:           QXmlEdit
 Version:        0.8.11
 Release:        1
 Summary:        Simple XML editor and XSD viewer
 Group:          Editors
 License:        GPLv2
 URL:            http://code.google.com/p/qxmledit
-Source:         http://qxmledit.googlecode.com/files/%{name}-%{version}-src.tgz
+Source:         http://qxmledit.googlecode.com/files/%{oname}-%{version}-src.tgz
 
 BuildRequires:  qt4-devel
 
@@ -19,26 +19,26 @@ It can split very big XML files into fragments, and compare XML files.
 It is one of the few graphical Open Source XSD viewers. 
 
 %prep
-%setup -qn %{oname}-%{version}
+%setup -q
 
 %build
 %global optflags %{optflags} -Wno-strict-aliasing
 %qmake_qt4 QXmlEdit.pro
 %make \
-	QXMLEDIT_INST_DATA_DIR=%{_datadir}/%{name} \
+	QXMLEDIT_INST_DATA_DIR=%{_datadir}/%{oname} \
 	QXMLEDIT_INST_DIR=%{_bindir} \
-	QXMLEDIT_INST_DOC_DIR=%{_datadir}/doc/%{name} \
+	QXMLEDIT_INST_DOC_DIR=%{_datadir}/doc/%{oname} \
 	QXMLEDIT_INST_LIB_DIR=%{_libdir} \
-	QXMLEDIT_INST_INCLUDE_DIR=%{_includedir}/%{name}
+	QXMLEDIT_INST_INCLUDE_DIR=%{_includedir}/%{oname}
 
 %install
 %make INSTALL_ROOT=%{buildroot} install
 rm -fr %{buildroot}%{_includedir} %{buildroot}%{_libdir}/*.so
 
-ln -sf %{_bindir}/QXmlEdit %{buildroot}%{_bindir}/%{name}
+ln -sf %{_bindir}/QXmlEdit %{buildroot}%{_bindir}/%{oname}
 
-%__install -Dm 0644 ./src/images/icon.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
-%__install -Dm 0644 ./src/images/icon.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
+%__install -Dm 0644 ./src/images/icon.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{oname}.png
+%__install -Dm 0644 ./src/images/icon.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{oname}.svg
 
 #fix wrong-script-end-of-line-encoding 
 perl -pi -e 's/\r/\n/g' ./src/findtextparams.h
@@ -47,7 +47,7 @@ perl -pi -e 's/\r/\n/g' ./src/xmleditwidget.cpp
 
 
 %__mkdir_p %{buildroot}%{_datadir}/applications
-cat <<EOF > %{buildroot}%{_datadir}/applications/%{oname}-%{name}.desktop
+cat <<EOF > %{buildroot}%{_datadir}/applications/%{name}-%{oname}.desktop
 [Desktop Entry]
 Name=QXmlEdit
 GenericName=Simple XML Editor and XSD viewer
@@ -65,8 +65,8 @@ EOF
 %files
 %doc AUTHORS COPYING DISTRIBUTING GPLV3.txt LGPLV3.txt INSTALL NEWS README ROADMAP TODO doc/QXmlEdit_manual.pdf
 %{_bindir}/QXmlEdit
-%{_bindir}/%{name}
+%{_bindir}/%{oname}
 %{_libdir}/libQXmlEdit*.so.*
-%{_datadir}/%{name}
-%{_datadir}/applications/%{oname}-%{name}.desktop
-%{_iconsdir}/hicolor/*/*/%{name}.*
+%{_datadir}/%{oname}
+%{_datadir}/applications/%{name}-%{oname}.desktop
+%{_iconsdir}/hicolor/*/*/%{oname}.*
