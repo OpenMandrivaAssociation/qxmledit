@@ -1,3 +1,4 @@
+%undefine _build_pkgcheck_set
 %define oname   QXmlEdit
 
 Name:           qxmledit
