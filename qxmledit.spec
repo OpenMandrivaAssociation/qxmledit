@@ -46,7 +46,7 @@ perl -pi -e 's/\r/\n/g' ./src/xmleditwidget.cpp
 
 
 %__mkdir_p %{buildroot}%{_datadir}/applications
-cat <<EOF > %{buildroot}%{_datadir}/applications/%{_real_vendor}-%{name}.desktop
+cat <<EOF > %{buildroot}%{_datadir}/applications/%{name}.desktop
 [Desktop Entry]
 Name=QXmlEdit
 GenericName=Simple XML Editor and XSD viewer
@@ -67,7 +67,5 @@ EOF
 %{_bindir}/%{name}
 %{_libdir}/libQXmlEdit*.so.*
 %{_datadir}/%{name}
-%{_datadir}/applications/%{_real_vendor}-%{name}.desktop
+%{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/%{name}.*
-
-
