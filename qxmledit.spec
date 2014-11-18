@@ -1,4 +1,3 @@
-%undefine _build_pkgcheck_set
 %define oname   QXmlEdit
 
 Name:           qxmledit
@@ -9,6 +8,7 @@ Group:          Editors
 License:        GPLv2
 URL:            http://code.google.com/p/qxmledit
 Source:         http://qxmledit.googlecode.com/files/%{name}-%{version}-src.tgz
+Source1:		qxmledit.rpmlintrc
 
 BuildRequires:  qt4-devel
 
