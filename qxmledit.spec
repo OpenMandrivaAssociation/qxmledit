@@ -19,7 +19,7 @@ It can split very big XML files into fragments, and compare XML files.
 It is one of the few graphical Open Source XSD viewers. 
 
 %prep
-%setup -q
+%setup -qn %{oname}-%{version}
 
 %build
 %global optflags %{optflags} -Wno-strict-aliasing
