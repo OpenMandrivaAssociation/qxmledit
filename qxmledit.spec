@@ -1,3 +1,5 @@
+%define oname   QXmlEdit
+
 Name:           qxmledit
 Version:        0.8.11
 Release:        1
@@ -6,6 +8,7 @@ Group:          Editors
 License:        GPLv2
 URL:            http://code.google.com/p/qxmledit
 Source:         http://qxmledit.googlecode.com/files/%{name}-%{version}-src.tgz
+Source1:		qxmledit.rpmlintrc
 
 BuildRequires:  qt4-devel
 
@@ -40,13 +43,13 @@ ln -sf %{_bindir}/QXmlEdit %{buildroot}%{_bindir}/%{name}
 %__install -Dm 0644 ./src/images/icon.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 
 #fix wrong-script-end-of-line-encoding 
-perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/findtextparams.h
-perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/globals/includes/xmleditwidget.h
-perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/xmleditwidget.cpp
+perl -pi -e 's/\r/\n/g' ./src/findtextparams.h
+perl -pi -e 's/\r/\n/g' ./src/globals/includes/xmleditwidget.h
+perl -pi -e 's/\r/\n/g' ./src/xmleditwidget.cpp
 
 
 %__mkdir_p %{buildroot}%{_datadir}/applications
-cat <<EOF > %{buildroot}%{_datadir}/applications/%{_real_vendor}-%{name}.desktop
+cat <<EOF > %{buildroot}%{_datadir}/applications/%{oname}-%{name}.desktop
 [Desktop Entry]
 Name=QXmlEdit
 GenericName=Simple XML Editor and XSD viewer
@@ -65,9 +68,7 @@ EOF
 %doc AUTHORS COPYING DISTRIBUTING GPLV3.txt LGPLV3.txt INSTALL NEWS README ROADMAP TODO doc/QXmlEdit_manual.pdf
 %{_bindir}/QXmlEdit
 %{_bindir}/%{name}
-%{_libdir}/libQXmlEdit*.so.*
+%{_libdir}/lib%{oname}*.so.*
 %{_datadir}/%{name}
-%{_datadir}/applications/%{_real_vendor}-%{name}.desktop
+%{_datadir}/applications/%{oname}-%{name}.desktop
 %{_iconsdir}/hicolor/*/*/%{name}.*
-
-
