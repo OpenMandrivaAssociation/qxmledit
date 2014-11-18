@@ -67,7 +67,7 @@ EOF
 %doc AUTHORS COPYING DISTRIBUTING GPLV3.txt LGPLV3.txt INSTALL NEWS README ROADMAP TODO doc/QXmlEdit_manual.pdf
 %{_bindir}/QXmlEdit
 %{_bindir}/%{name}
-%{_libdir}/lib%{oname}.so.*
+%{_libdir}/lib%{oname}*.so.*
 %{_datadir}/%{name}
 %{_datadir}/applications/%{oname}-%{name}.desktop
 %{_iconsdir}/hicolor/*/*/%{name}.*
