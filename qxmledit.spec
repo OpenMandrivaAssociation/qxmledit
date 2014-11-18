@@ -19,6 +19,7 @@ It is one of the few graphical Open Source XSD viewers.
 %prep
 %setup -q
 
+
 %build
 %global optflags %{optflags} -Wno-strict-aliasing
 %qmake_qt4 QXmlEdit.pro
@@ -37,6 +38,12 @@ ln -sf %{_bindir}/QXmlEdit %{buildroot}%{_bindir}/%{name}
 
 %__install -Dm 0644 ./src/images/icon.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 %__install -Dm 0644 ./src/images/icon.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
+
+#fix wrong-script-end-of-line-encoding 
+perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/findtextparams.h
+perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/globals/includes/xmleditwidget.h
+perl -pi -e 's/\015$//' ./src/debug/qxmledit-0.8.11/src/xmleditwidget.cpp
+
 
 %__mkdir_p %{buildroot}%{_datadir}/applications
 cat <<EOF > %{buildroot}%{_datadir}/applications/%{_real_vendor}-%{name}.desktop
