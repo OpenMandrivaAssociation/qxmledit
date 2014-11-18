@@ -18,6 +18,10 @@ It is one of the few graphical Open Source XSD viewers.
 
 %prep
 %setup -q
+sed -i 's/\r$//' usr/src/debug/qxmledit-0.8.11/src/findtextparams.h
+sed -i 's/\r$//' usr/src/debug/qxmledit-0.8.11/src/globals/includes/xmleditwidget.h
+sed -i 's/\r$//' /usr/src/debug/qxmledit-0.8.11/src/xmleditwidget.cpp
+
 
 %build
 %global optflags %{optflags} -Wno-strict-aliasing
