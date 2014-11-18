@@ -19,8 +19,7 @@ It can split very big XML files into fragments, and compare XML files.
 It is one of the few graphical Open Source XSD viewers. 
 
 %prep
-%setup -q
-
+%setup -qn %{oname}-%{version}
 
 %build
 %global optflags %{optflags} -Wno-strict-aliasing
@@ -67,7 +66,7 @@ EOF
 %doc AUTHORS COPYING DISTRIBUTING GPLV3.txt LGPLV3.txt INSTALL NEWS README ROADMAP TODO doc/QXmlEdit_manual.pdf
 %{_bindir}/QXmlEdit
 %{_bindir}/%{name}
-%{_libdir}/lib%{oname}*.so.*
+%{_libdir}/libQXmlEdit*.so.*
 %{_datadir}/%{name}
 %{_datadir}/applications/%{oname}-%{name}.desktop
 %{_iconsdir}/hicolor/*/*/%{name}.*
