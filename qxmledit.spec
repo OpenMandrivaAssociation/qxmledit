@@ -6,7 +6,7 @@ Release:        1
 Summary:        Simple XML editor and XSD viewer
 Group:          Editors
 License:        GPLv2
-URL:            http://code.google.com/p/qxmledit
+URL:            https://code.google.com/p/qxmledit
 Source:         http://qxmledit.googlecode.com/files/%{name}-%{version}-src.tgz
 Source1:		qxmledit.rpmlintrc
 
