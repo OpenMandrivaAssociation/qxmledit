@@ -10,6 +10,7 @@ URL:            https://code.google.com/p/qxmledit
 Source:         http://qxmledit.googlecode.com/files/%{name}-%{version}-src.tgz
 Source1:		qxmledit.rpmlintrc
 
+BuildRequires:	make
 BuildRequires:  qt4-devel
 
 
